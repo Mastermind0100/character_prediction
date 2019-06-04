@@ -68,4 +68,4 @@ training_set.class_indices
   
 maxval = np.amax(result)
 index = np.where(result == maxval)
-print('\n',arr_result[index[1][0]])        
+print('\n','Predicted Character:',arr_result[index[1][0]])        
