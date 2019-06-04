@@ -11,14 +11,14 @@ from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D, Dense, Flatten
 from keras.preprocessing.image import ImageDataGenerator
 
-trdata = 66024
-vltdata = 12567
+trdata = 66024            # My dataset had these many images. Verify the number of imgaes in your dataset by
+vltdata = 12567           # executing lines 33-48 on your compiler
 batch = 32
 
 arr_result = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 
-training_data = 'nist_new/training'
-validation_data = 'nist_new/validation'
+training_data = 'nist_new/training'           #This was the location of the dataset on my disk. 
+validation_data = 'nist_new/validation'       #The location of your dataset may vary.      
 
 model=Sequential()
 model.add(Conv2D(32,(3,3),input_shape=(64,64,3),activation='relu'))
@@ -51,10 +51,12 @@ model.fit_generator(training_set,steps_per_epoch = 2000,
                          epochs = 10,
                          validation_data = test_set,
                          validation_steps = 400)                 #trdata//batch = 2000
-                                                                #vldata//batch = 400
+                                                                 #vldata//batch = 400
 
 model.save('modelwts.h5')
+#Model Creation and Training code ends here
 
+#This is the code for testing
 from keras.preprocessing import image
 
 model=load_model('modelwts.h5')
