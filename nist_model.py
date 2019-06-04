@@ -50,8 +50,8 @@ test_set=test_datagen.flow_from_directory(directory = validation_data,
 model.fit_generator(training_set,steps_per_epoch = 2000,         
                          epochs = 10,
                          validation_data = test_set,
-                         validation_steps = 400)                 #trdata//batch = 125
-                                                                #vldata//batch = 50
+                         validation_steps = 400)                 #trdata//batch = 2000
+                                                                #vldata//batch = 400
 
 model.save('modelwts.h5')
 
@@ -65,10 +65,7 @@ test_image=np.expand_dims(test_image, axis = 0)
 result=model.predict(test_image)
 np.reshape(result, 26)
 training_set.class_indices
-
-#for i in result:
- #   print(i)
-    
+  
 maxval = np.amax(result)
 index = np.where(result == maxval)
 print('\n',arr_result[index[1][0]])        
