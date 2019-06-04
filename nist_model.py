@@ -29,7 +29,7 @@ model.add(MaxPooling2D(pool_size=(2,2)))
 model.add(Flatten())
 model.add(Dense(units=128,activation='relu'))
 
-model.add(Dense(units=26,activation='softmax'))  # The dimentionality of output space depends on the number of characters in question
+model.add(Dense(units=26,activation='softmax'))  # The dimentionality of output space depends on the number of categories
 model.compile(optimizer='adam',loss='sparse_categorical_crossentropy',metrics=['accuracy'])
 
 train_datagen=ImageDataGenerator(rescale = 1./255,
